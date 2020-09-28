@@ -51,7 +51,7 @@ import UIKit
 //}
 
 struct WeatherInfo: Decodable {
-    var ccord: Coordinate
+    var coord: Coordinate
     var weather: [Weather]
     var main: MainInfo
     var wind: Wind
