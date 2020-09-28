@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        let city = cities.first!
+        
+        APIManager.shared.getWeatherForCIty(id: city.id)
     }
 
 
