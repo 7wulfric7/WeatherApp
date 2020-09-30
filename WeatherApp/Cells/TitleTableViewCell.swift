@@ -9,6 +9,11 @@ import UIKit
 
 class TitleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var icon: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblTemp: UILabel!
+    @IBOutlet weak var lblWeatherDesc: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
