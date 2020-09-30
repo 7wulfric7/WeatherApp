@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		222729F72524ED4700508051 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222729F62524ED4700508051 /* WeatherViewController.swift */; };
+		222729FB2524ED6A00508051 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222729FA2524ED6A00508051 /* SettingsViewController.swift */; };
+		22272A042524F08D00508051 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22272A022524F08D00508051 /* TitleTableViewCell.swift */; };
+		22272A052524F08D00508051 /* TitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22272A032524F08D00508051 /* TitleTableViewCell.xib */; };
 		224E1C0B252243560003CA45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E1C0A252243560003CA45 /* AppDelegate.swift */; };
 		224E1C0D252243560003CA45 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E1C0C252243560003CA45 /* SceneDelegate.swift */; };
-		224E1C0F252243560003CA45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E1C0E252243560003CA45 /* ViewController.swift */; };
 		224E1C12252243560003CA45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C10252243560003CA45 /* Main.storyboard */; };
 		224E1C14252243560003CA45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C13252243560003CA45 /* Assets.xcassets */; };
 		224E1C17252243560003CA45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C15252243560003CA45 /* LaunchScreen.storyboard */; };
@@ -21,10 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		222729F62524ED4700508051 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		222729FA2524ED6A00508051 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		22272A022524F08D00508051 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		22272A032524F08D00508051 /* TitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleTableViewCell.xib; sourceTree = "<group>"; };
 		224E1C07252243560003CA45 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		224E1C0A252243560003CA45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		224E1C0C252243560003CA45 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		224E1C0E252243560003CA45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		224E1C11252243560003CA45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		224E1C13252243560003CA45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		224E1C16252243560003CA45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,6 +65,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		222729F52524ED1600508051 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				222729F62524ED4700508051 /* WeatherViewController.swift */,
+				222729FA2524ED6A00508051 /* SettingsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		222729FD2524F02E00508051 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				22272A022524F08D00508051 /* TitleTableViewCell.swift */,
+				22272A032524F08D00508051 /* TitleTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		224E1BFE252243550003CA45 = {
 			isa = PBXGroup;
 			children = (
@@ -80,11 +104,12 @@
 		224E1C09252243560003CA45 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				222729FD2524F02E00508051 /* Cells */,
+				222729F52524ED1600508051 /* Controllers */,
 				22F7DCB625224C5C00FADF60 /* Managers */,
 				22F7DCB125224A6600FADF60 /* Models */,
 				224E1C0A252243560003CA45 /* AppDelegate.swift */,
 				224E1C0C252243560003CA45 /* SceneDelegate.swift */,
-				224E1C0E252243560003CA45 /* ViewController.swift */,
 				224E1C10252243560003CA45 /* Main.storyboard */,
 				224E1C13252243560003CA45 /* Assets.xcassets */,
 				224E1C15252243560003CA45 /* LaunchScreen.storyboard */,
@@ -178,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22272A052524F08D00508051 /* TitleTableViewCell.xib in Resources */,
 				224E1C17252243560003CA45 /* LaunchScreen.storyboard in Resources */,
 				224E1C14252243560003CA45 /* Assets.xcassets in Resources */,
 				224E1C12252243560003CA45 /* Main.storyboard in Resources */,
@@ -234,12 +260,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				22F7DCBF2522585300FADF60 /* WeatherInfo.swift in Sources */,
-				224E1C0F252243560003CA45 /* ViewController.swift in Sources */,
 				224E1C0B252243560003CA45 /* AppDelegate.swift in Sources */,
 				22F7DCB825224C7100FADF60 /* APIManager.swift in Sources */,
 				22F7DCB325224AB100FADF60 /* City.swift in Sources */,
+				222729F72524ED4700508051 /* WeatherViewController.swift in Sources */,
 				224E1C0D252243560003CA45 /* SceneDelegate.swift in Sources */,
 				22F7DCBC25224E3400FADF60 /* Constants.swift in Sources */,
+				22272A042524F08D00508051 /* TitleTableViewCell.swift in Sources */,
+				222729FB2524ED6A00508051 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
