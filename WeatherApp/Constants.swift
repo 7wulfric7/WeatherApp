@@ -7,7 +7,7 @@
 
 let APIKey = "db653c20eb6e31337c9d5ec4c0edc9ff"
 let BASE_URL = "https://api.openweathermap.org/data/2.5/"
-
+let BASE_ICON_URL = "http://openweathermap.org/img/wn/"
 let cities = [City(id: 2643743, name: "London"),
 City(id: 5128581, name: "New York City"),
 City(id: 1850147, name: "Tokyo"),

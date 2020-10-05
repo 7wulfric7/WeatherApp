@@ -45,7 +45,7 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
         APIManager.shared.getWeatherForCIty(id: city.id) { (weather, error) in
             if let weather = weather {
                 cell.lblTemp.text = "\(weather.main.temp!)°"
-                cell.lblWeatherDesc.text = weather.weather[0].description
+                cell.lblWeatherDesc.text = weather.weather[0].description?.capitalized
             }
         }
         return cell
