@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class WeatherViewController: UIViewController {
 
@@ -41,16 +42,13 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleTableViewCell
         let city = cities[indexPath.row]
-        cell.lblName.text = city.name
-        APIManager.shared.getWeatherForCIty(id: city.id) { (weather, error) in
-            if let weather = weather {
-                cell.lblTemp.text = "\(weather.main.temp!)°"
-                cell.lblWeatherDesc.text = weather.weather[0].description?.capitalized
-            }
-        }
+        cell.setWeatherInfoForCity(city: city)
+        cell.selectionStyle = .gray
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
