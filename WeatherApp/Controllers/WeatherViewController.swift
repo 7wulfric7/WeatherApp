@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITableViewDelegate {
+class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,7 +25,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate {
 
 }
 
-extension WeatherViewController: UITableViewDataSource {
+extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,6 +40,8 @@ extension WeatherViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleTableViewCell
+        let city = cities[indexPath.row]
+        cell.lblName.text = city.name
         return cell
     }
     
