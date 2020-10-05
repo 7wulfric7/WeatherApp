@@ -17,15 +17,16 @@ class APIManager {
 //    api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
 //    db653c20eb6e31337c9d5ec4c0edc9ff     - my API Key
     
-    func getWeatherForCIty(id: Int) {
-        let url = BASE_URL + "weather?id=\(id)&appid=" + APIKey
+    func getWeatherForCIty(id: Int, completion: @escaping (_ weather: WeatherInfo?,_ error: Error?) -> Void)  {
+        let url = BASE_URL + "weather?id=\(id)&appid=" + APIKey + "&units=metric"
         AF.request(url).responseDecodable(of: WeatherInfo.self) { response in
             if let error = response.error {
                 print(error.localizedDescription)
+                completion(nil, error)
                 return
             }
             if let weather = response.value {
-                print(weather.id, weather.name, weather.main.tempMax)
+                completion(weather, nil)
             }
             
         }
