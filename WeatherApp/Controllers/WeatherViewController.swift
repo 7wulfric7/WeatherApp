@@ -41,7 +41,11 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleTableViewCell
         let city = cities[indexPath.row]
+        
+        let description = cities[indexPath.row]
         cell.lblName.text = city.name
+        
+        cell.lblWeatherDesc.text = description.id.description
         return cell
     }
     
