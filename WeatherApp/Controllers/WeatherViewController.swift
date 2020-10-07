@@ -11,19 +11,29 @@ import Kingfisher
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+   
+    var cities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
-        // Do any additional setup after loading the view.
+        getCitiesFromFile()
+        
     }
     
     func setupTable() {
-        tableView.register(UINib(nibName: "TitleTableViewCell", bundle: nil), forCellReuseIdentifier: "titleCell")
+        tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "titleCell")
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    func getCitiesFromFile () {
+        guard let url = Bundle.main.url(forResource: "city.list", withExtension: "json") else {
+            return
+        }
+        let data = try! Data(contentsOf: url)
+        let decoder = JSONDecoder()
+        cities = try! decoder.decode([City].self, from: data)
+    }
 }
 
 extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
@@ -40,9 +50,9 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! TitleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! CityTableViewCell
         let city = cities[indexPath.row]
-        cell.setWeatherInfoForCity(city: city)
+        cell.setWeatherInfo(city: city)
         cell.selectionStyle = .gray
         return cell
     }

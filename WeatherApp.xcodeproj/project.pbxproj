@@ -16,6 +16,9 @@
 		224E1C12252243560003CA45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C10252243560003CA45 /* Main.storyboard */; };
 		224E1C14252243560003CA45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C13252243560003CA45 /* Assets.xcassets */; };
 		224E1C17252243560003CA45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 224E1C15252243560003CA45 /* LaunchScreen.storyboard */; };
+		229BE6DB252E20580046564E /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = 229BE6DA252E20580046564E /* city.list.json */; };
+		229BE6DF252E2D380046564E /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229BE6DD252E2D380046564E /* CityTableViewCell.swift */; };
+		229BE6E0252E2D380046564E /* CityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 229BE6DE252E2D380046564E /* CityTableViewCell.xib */; };
 		22F7DCB325224AB100FADF60 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7DCB225224AB100FADF60 /* City.swift */; };
 		22F7DCB825224C7100FADF60 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7DCB725224C7100FADF60 /* APIManager.swift */; };
 		22F7DCBC25224E3400FADF60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F7DCBB25224E3400FADF60 /* Constants.swift */; };
@@ -35,6 +38,9 @@
 		224E1C13252243560003CA45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		224E1C16252243560003CA45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		224E1C18252243560003CA45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		229BE6DA252E20580046564E /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
+		229BE6DD252E2D380046564E /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		229BE6DE252E2D380046564E /* CityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityTableViewCell.xib; sourceTree = "<group>"; };
 		22F7DCB225224AB100FADF60 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		22F7DCB725224C7100FADF60 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		22F7DCBB25224E3400FADF60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -79,6 +85,8 @@
 			children = (
 				22272A022524F08D00508051 /* TitleTableViewCell.swift */,
 				22272A032524F08D00508051 /* TitleTableViewCell.xib */,
+				229BE6DD252E2D380046564E /* CityTableViewCell.swift */,
+				229BE6DE252E2D380046564E /* CityTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -104,6 +112,7 @@
 		224E1C09252243560003CA45 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				229BE6DA252E20580046564E /* city.list.json */,
 				222729FD2524F02E00508051 /* Cells */,
 				222729F52524ED1600508051 /* Controllers */,
 				22F7DCB625224C5C00FADF60 /* Managers */,
@@ -204,8 +213,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				22272A052524F08D00508051 /* TitleTableViewCell.xib in Resources */,
+				229BE6DB252E20580046564E /* city.list.json in Resources */,
 				224E1C17252243560003CA45 /* LaunchScreen.storyboard in Resources */,
 				224E1C14252243560003CA45 /* Assets.xcassets in Resources */,
+				229BE6E0252E2D380046564E /* CityTableViewCell.xib in Resources */,
 				224E1C12252243560003CA45 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,6 +272,7 @@
 			files = (
 				22F7DCBF2522585300FADF60 /* WeatherInfo.swift in Sources */,
 				224E1C0B252243560003CA45 /* AppDelegate.swift in Sources */,
+				229BE6DF252E2D380046564E /* CityTableViewCell.swift in Sources */,
 				22F7DCB825224C7100FADF60 /* APIManager.swift in Sources */,
 				22F7DCB325224AB100FADF60 /* City.swift in Sources */,
 				222729F72524ED4700508051 /* WeatherViewController.swift in Sources */,

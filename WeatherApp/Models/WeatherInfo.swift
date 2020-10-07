@@ -67,7 +67,7 @@ struct Weather: Decodable {
     var icon: String?
 }
 
-struct Coordinate: Decodable {
+struct Coordinate: Codable {
     var long: Double?
     var latt: Double?
 }
