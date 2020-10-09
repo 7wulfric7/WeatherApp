@@ -39,11 +39,20 @@ class CityTableViewCell: UITableViewCell {
         lblLattLong.isHidden = false
     }
     func setWeatherInfo(city: City) {
-        self.lblCityName.text = city.name
-        self.lblCountryName.text = city.country
-        self.lblState.text = city.state
-        self.lblLattLong.text = "\(city.coord?.latt), \(city.coord?.long)"
-        startLoading()
+        lblCityName.text = city.name
+        lblCountryName.text = city.country
+        lblState.text = city.state
+        if let coord = city.coord, let latt = coord.latt, let long = coord.long {
+            lblLattLong.text = "(\(latt.round(to: 3)), \(long.round(to: 3)))"
+        } else {
+            lblLattLong.text = ""
         }
+        startLoading()
     }
- 
+}
+extension Double {
+    func round(to places: Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}

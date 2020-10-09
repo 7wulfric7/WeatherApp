@@ -16,13 +16,13 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Cities Weather"
         setupTable()
         getCitiesFromFile()
-        
     }
     
     func setupTable() {
-        tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "titleCell")
+        tableView.register(UINib(nibName: "CityTableViewCell", bundle: nil), forCellReuseIdentifier: "cityCell")
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -46,11 +46,11 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 110
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell") as! CityTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell") as! CityTableViewCell
         let city = cities[indexPath.row]
         cell.setWeatherInfo(city: city)
         cell.selectionStyle = .gray
