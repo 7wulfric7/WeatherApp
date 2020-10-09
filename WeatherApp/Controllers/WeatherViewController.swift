@@ -14,11 +14,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var cities = [City]()
+    var filteredCities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cities Weather"
         searchBar.delegate = self
+//        searchBar.showsCancelButton = true
         setupTable()
         getCitiesFromFile()
     }
@@ -35,6 +37,7 @@ class WeatherViewController: UIViewController {
         let data = try! Data(contentsOf: url)
         let decoder = JSONDecoder()
         cities = try! decoder.decode([City].self, from: data)
+        filteredCities.append(contentsOf: cities)
     }
 }
 
@@ -43,7 +46,15 @@ extension WeatherViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        <#code#>
+        if searchText == "" {
+            filteredCities.removeAll()
+            filteredCities.append(contentsOf: cities)
+            tableView.reloadData()
+            return
+        }
+        let text = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        filteredCities = cities.filter({ $0.name.lowercased().hasPrefix(text.lowercased()) })
+        tableView.reloadData()
     }
 }
 
@@ -53,7 +64,7 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cities.count
+        return filteredCities.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -62,7 +73,7 @@ extension WeatherViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell") as! CityTableViewCell
-        let city = cities[indexPath.row]
+        let city = filteredCities[indexPath.row]
         cell.setWeatherInfo(city: city)
         cell.selectionStyle = .gray
         return cell
