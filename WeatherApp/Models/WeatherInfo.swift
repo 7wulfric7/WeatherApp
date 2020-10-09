@@ -68,8 +68,8 @@ struct Weather: Decodable {
 }
 
 struct Coordinate: Codable {
-    var long: Double?
-    var latt: Double?
+    var lon: Double?
+    var lat: Double?
 }
 
 struct MainInfo: Decodable {

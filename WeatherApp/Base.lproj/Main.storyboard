@@ -86,27 +86,38 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zzr-2v-gKh">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="681"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search City" translatesAutoresizingMaskIntoConstraints="NO" id="8B2-FZ-U8Q">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JA6-ZD-Q5T"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Qcl-wO-vfu"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                         <constraints>
-                            <constraint firstItem="zzr-2v-gKh" firstAttribute="top" secondItem="Qcl-wO-vfu" secondAttribute="top" id="3Pv-1p-axT"/>
+                            <constraint firstItem="8B2-FZ-U8Q" firstAttribute="top" secondItem="Qcl-wO-vfu" secondAttribute="top" id="B8W-rN-7eX"/>
                             <constraint firstItem="Qcl-wO-vfu" firstAttribute="trailing" secondItem="zzr-2v-gKh" secondAttribute="trailing" id="HjC-uo-TSa"/>
                             <constraint firstItem="zzr-2v-gKh" firstAttribute="leading" secondItem="Qcl-wO-vfu" secondAttribute="leading" id="YFQ-Rb-6oe"/>
                             <constraint firstItem="Qcl-wO-vfu" firstAttribute="bottom" secondItem="zzr-2v-gKh" secondAttribute="bottom" id="eDb-ST-3Sg"/>
+                            <constraint firstItem="8B2-FZ-U8Q" firstAttribute="leading" secondItem="Qcl-wO-vfu" secondAttribute="leading" id="kMt-UM-WLc"/>
+                            <constraint firstItem="8B2-FZ-U8Q" firstAttribute="trailing" secondItem="Qcl-wO-vfu" secondAttribute="trailing" id="o29-Bs-KGH"/>
+                            <constraint firstItem="zzr-2v-gKh" firstAttribute="top" secondItem="8B2-FZ-U8Q" secondAttribute="bottom" id="tbG-Pz-fk6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Uq5-VU-dyL"/>
                     <connections>
+                        <outlet property="searchBar" destination="8B2-FZ-U8Q" id="znW-jj-q1A"/>
                         <outlet property="tableView" destination="zzr-2v-gKh" id="Nkv-ca-dAL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sr8-cV-rYT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="175" y="-1"/>
+            <point key="canvasLocation" x="173.91304347826087" y="-1.3392857142857142"/>
         </scene>
     </scenes>
     <resources>

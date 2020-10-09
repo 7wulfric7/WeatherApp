@@ -78,7 +78,7 @@
                 <outlet property="lblLattLong" destination="SSF-bM-bXX" id="g0W-tT-cvz"/>
                 <outlet property="lblState" destination="9Ph-Rk-ic5" id="e5L-wi-dQW"/>
             </connections>
-            <point key="canvasLocation" x="136.95652173913044" y="145.98214285714286"/>
+            <point key="canvasLocation" x="47" y="145"/>
         </tableViewCell>
     </objects>
 </document>

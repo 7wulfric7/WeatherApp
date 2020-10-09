@@ -30,7 +30,7 @@ class CityTableViewCell: UITableViewCell {
         activityIndicator.startAnimating()
     }
     
-    func stopLoading(city: City) {
+    func stopLoading() {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         lblCityName.isHidden = false
@@ -42,12 +42,12 @@ class CityTableViewCell: UITableViewCell {
         lblCityName.text = city.name
         lblCountryName.text = city.country
         lblState.text = city.state
-        if let coord = city.coord, let latt = coord.latt, let long = coord.long {
+        if let coord = city.coord, let latt = coord.lat, let long = coord.lon {
             lblLattLong.text = "(\(latt.round(to: 3)), \(long.round(to: 3)))"
         } else {
             lblLattLong.text = ""
         }
-        startLoading()
+        stopLoading()
     }
 }
 extension Double {

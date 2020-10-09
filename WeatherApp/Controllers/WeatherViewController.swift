@@ -11,12 +11,14 @@ import Kingfisher
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-   
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var cities = [City]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cities Weather"
+        searchBar.delegate = self
         setupTable()
         getCitiesFromFile()
     }
@@ -33,6 +35,15 @@ class WeatherViewController: UIViewController {
         let data = try! Data(contentsOf: url)
         let decoder = JSONDecoder()
         cities = try! decoder.decode([City].self, from: data)
+    }
+}
+
+extension WeatherViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        <#code#>
     }
 }
 
