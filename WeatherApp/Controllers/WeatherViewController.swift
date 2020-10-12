@@ -49,7 +49,7 @@ class WeatherViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    func getCitiesFromFile () {
+    func getCitiesFromFile() {
         guard let url = Bundle.main.url(forResource: "city.list", withExtension: "json") else {
             return
         }
