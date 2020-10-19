@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import CoreLocation
 
 class WeatherViewController: UIViewController {
 
@@ -16,15 +17,56 @@ class WeatherViewController: UIViewController {
     var cities = [City]()
     var filteredCities = [City]()
     
+    var locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Cities Weather"
         searchBar.delegate = self
-//        searchBar.showsCancelButton = true
         setupTable()
         getCitiesFromFile()
         registerForKeyboardNotificaitons()
+        checkForLocationPermission()
     }
+    
+    
+    
+    func checkForLocationPermission() {
+        locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.desiredAccuracy = 100
+       let status = CLLocationManager.authorizationStatus()
+        switch status {
+        case .authorizedWhenInUse, .authorizedAlways:
+            locationManager.startUpdatingLocation()
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            break
+        case .restricted:
+            break
+        }
+    }
+    func getAdressFromLocation(location: CLLocation) {
+            let geocoder = CLGeocoder()
+            // Look up the location and pass it to the completion handler
+            geocoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) in
+                if error == nil {
+                    if let firstLocation = placemarks?[0] {
+                        if let city = firstLocation.locality {
+                            if let index = self.cities.firstIndex(where: {$0.name == city }) {
+                            let foundCity = self.cities.remove(at: index)
+                            self.cities.insert(foundCity, at: 0)
+                                self.filteredCities = self.cities
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                } else {
+                    // An error occurred during geocoding.
+                }
+            })
+        }
     
     func registerForKeyboardNotificaitons() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -60,6 +102,20 @@ class WeatherViewController: UIViewController {
     }
 }
 
+
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+        getAdressFromLocation(location: location)
+//        locationManager.stopUpdatingLocation()
+        }
+    }
+}
 extension WeatherViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
